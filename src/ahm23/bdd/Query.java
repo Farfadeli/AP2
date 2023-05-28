@@ -228,6 +228,36 @@ public class Query {
        return -1;  
     }
     
+    public ArrayList<Object[]> getUsers(){
+        try{
+            ArrayList<Object[]> toReturn = new ArrayList<Object[]>();
+            String requete = "SELECT nom,prenom,mail FROM utilisateurs";
+            ResultSet res = this.getState().executeQuery(requete);
+            while(res.next()){
+                toReturn.add(new Object[]{res.getString(1), res.getString(2), res.getString(3)});
+            }
+            return toReturn;
+        }
+        catch(SQLException ex){
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    public ArrayList<Object[]> getUsers(String args){
+        try{
+            ArrayList<Object[]> toReturn = new ArrayList<Object[]>();
+            String requete = "SELECT nom,prenom,mail FROM utilisateurs WHERE nom like '%"+args+"%' OR prenom like '%"+args+"%' OR mail like '%"+args+"%' ;";
+            ResultSet res = this.getState().executeQuery(requete);
+            while(res.next()){
+                toReturn.add(new Object[]{res.getString(1), res.getString(2), res.getString(3)});
+            }
+            return toReturn;
+        }
+        catch(SQLException ex){
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     public Statement getState(){
         return this.state;
     }

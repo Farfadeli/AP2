@@ -36,6 +36,7 @@ public class HomeView extends JPanel{
         this.setSize(Gen.WIDTH, Gen.HEIGHT);
         this.setLayout(null);
         
+        
         this.titleLabel.setFont(this.titleImpact);
         
         this.titleLabel.setBounds(35, 20, 438, 81);
@@ -72,6 +73,11 @@ public class HomeView extends JPanel{
         this.iconComptable.addMouseListener(new MouseAdapter(){
             public void mouseClicked(MouseEvent e){
                 Gen.changeFrame(new Comptable(), Comptable.TITLE);
+            }
+        });
+        this.iconUser.addMouseListener(new MouseAdapter(){
+            public void mouseClicked(MouseEvent e){
+                Gen.changeFrame(new GestionUser(), GestionUser.TITLE);
             }
         });
         
