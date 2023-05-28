@@ -258,6 +258,38 @@ public class Query {
         }
         return null;
     }
+    public int getIdDroits(String libelle){
+        try{
+            String req = "SELECT id from droits where libelle = '"+libelle+"' ;";
+            ResultSet res = this.getState().executeQuery(req);
+            while(res.next()){
+                return res.getInt(1);
+            }
+        }
+        catch(SQLException ex){
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return -1;
+    }
+    public void insertUser(String prenom, String nom, String mail, String tel, String pseudo, String mdp, int idPrivilege){
+        try{
+            int telephone = Integer.parseInt(tel);
+            String req = "INSERT INTO utilisateurs(prenom,nom,mail,tel,pseudo,mdp,idPrivilege) values(?,?,?,?,?,?,?)";
+            PreparedStatement statement = this.connect.prepareStatement(req);
+            statement.setString(1, prenom);
+            statement.setString(2, nom);
+            statement.setString(3, mail);
+            statement.setInt(4, telephone);
+            statement.setString(5, pseudo);
+            statement.setString(6, mdp);
+            statement.setInt(7, idPrivilege);
+            statement.execute();
+        }
+        catch(SQLException ex){
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public Statement getState(){
         return this.state;
     }

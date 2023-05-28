@@ -82,6 +82,7 @@ public class GestionUser extends JPanel{
         
         searchBar.setBorder(new LineBorder(Color.BLACK, 1));
         this.headerTab.setBackground(Colorize.PRIMARY_RED);
+        this.viewTitle.setCursor(new Cursor(Cursor.HAND_CURSOR));
         
         // Event
         
@@ -99,7 +100,7 @@ public class GestionUser extends JPanel{
         
         this.btnAjout.addMouseListener(new MouseAdapter(){
             public void mouseClicked(MouseEvent e){
-                new AddUser();
+                Gen.changeFrame(new AddUser(), "ahm23 - ajout utilisateurs");
             }
         });
         
