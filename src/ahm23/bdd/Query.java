@@ -10,16 +10,15 @@ import java.util.logging.Logger;
 
 public class Query {
     
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "";
-    private static final String BDD = "ahm23";
+    private static final String USERNAME = "u174874953_ndaunac";
+    private static final String PASSWORD = "Btssio_82300";
     public Connection connect;
     private Statement state;
     
     public Query(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/ahm23", USERNAME, PASSWORD);
+            connect = DriverManager.getConnection("jdbc:mysql://srv990.hstgr.io:3306/u174874953_ahm23", USERNAME, PASSWORD);
             state = connect.createStatement();
         } catch (SQLException ex) {
             Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
@@ -164,7 +163,7 @@ public class Query {
     public ArrayList<Object[]> getPalette(String args){
         try{
             ArrayList<Object[]> toReturn = new ArrayList<>();
-            String requete = "SELECT designation, quantiteCommandee , coutRevient from modelepalette inner join ligneCommande on modelepalette.id = lignecommande.idModele"
+            String requete = "SELECT designation, quantiteCommandee , coutRevient from modelepalette inner join lignecommande on modelepalette.id = lignecommande.idModele"
                     + " inner join commande on lignecommande.idCommande = commande.id where commande.dateLIvraisonReel is NULL AND designation like '%"+args+"%';";
             ResultSet res = this.getState().executeQuery(requete);
             while(res.next()){
@@ -182,7 +181,7 @@ public class Query {
     public ArrayList<Object[]> getPalette(){
         try{
            ArrayList<Object[]> toReturn = new ArrayList<>();
-            String requete = "SELECT designation, quantiteCommandee , coutRevient from modelepalette inner join ligneCommande on modelepalette.id = lignecommande.idModele"
+            String requete = "SELECT designation, quantiteCommandee , coutRevient from modelepalette inner join lignecommande on modelepalette.id = lignecommande.idModele"
                     + " inner join commande on lignecommande.idCommande = commande.id where commande.dateLIvraisonReel is NULL";
             ResultSet res = this.getState().executeQuery(requete);
             while(res.next()){
@@ -198,7 +197,7 @@ public class Query {
     public double getTotal(String args){
         try{
             float total = 0 ;
-            String requete = "SELECT quantiteCommandee , coutRevient from modelepalette inner join ligneCommande on modelepalette.id = lignecommande.idModele"
+            String requete = "SELECT quantiteCommandee , coutRevient from modelepalette inner join lignecommande on modelepalette.id = lignecommande.idModele"
                     + " inner join commande on lignecommande.idCommande = commande.id where commande.dateLivraisonReel is NULL AND designation like '%"+args+"%';";
             ResultSet res = this.getState().executeQuery(requete);
             while(res.next()){
@@ -214,7 +213,7 @@ public class Query {
     public double getTotal(){
         try{
             float total = 0 ;
-            String requete = "SELECT quantiteCommandee , coutRevient from modelepalette inner join ligneCommande on modelepalette.id = lignecommande.idModele"
+            String requete = "SELECT quantiteCommandee , coutRevient from modelepalette inner join lignecommande on modelepalette.id = lignecommande.idModele"
                     + " inner join commande on lignecommande.idCommande = commande.id where commande.dateLIvraisonReel is NULL";
             ResultSet res = this.getState().executeQuery(requete);
             while(res.next()){
