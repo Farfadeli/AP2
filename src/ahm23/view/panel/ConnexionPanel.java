@@ -67,6 +67,7 @@ public class ConnexionPanel extends JPanel{
         this.button.setFocusPainted(false);
         this.button.setCursor(new Cursor(Cursor.HAND_CURSOR));
         this.button.setBorderPainted(false);
+        this.setOpaque(false);
         
         // Custom input
         idField.setBorder(new LineBorder(Color.BLACK, 1));
