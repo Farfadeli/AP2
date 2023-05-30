@@ -53,7 +53,7 @@ public class GestionUser extends JPanel{
         // Bounds
         this.viewTitle.setBounds(37,31,780,71);
         this.btnAjout.setBounds(158,207,150,37);
-        this.btnSearch.setBounds(784, 207, 150, 37);
+        this.btnSearch.setBounds(784, 207, 180, 37);
         searchBar.setBounds(158, 148, 776,41);
         this.headerTab.setBounds(143, 290, 793, 48);
         scroll.setBounds(143, 338, 793, 338);
@@ -74,11 +74,13 @@ public class GestionUser extends JPanel{
         this.btnAjout.setFocusPainted(false);
         this.btnAjout.setCursor(new Cursor(Cursor.HAND_CURSOR));
         this.btnAjout.setBorderPainted(false);
+        this.btnAjout.setOpaque(true);
         
         this.btnSearch.setBackground(Colorize.PRIMARY_RED);
         this.btnSearch.setFocusPainted(false);
         this.btnSearch.setCursor(new Cursor(Cursor.HAND_CURSOR));
         this.btnSearch.setBorderPainted(false);
+        this.btnSearch.setOpaque(true);
         
         searchBar.setBorder(new LineBorder(Color.BLACK, 1));
         this.headerTab.setBackground(Colorize.PRIMARY_RED);

@@ -39,7 +39,7 @@ public class HomeView extends JPanel{
         
         this.titleLabel.setFont(this.titleImpact);
         
-        this.titleLabel.setBounds(35, 20, 438, 81);
+        this.titleLabel.setBounds(35, 20, 508, 81);
         this.iconStock.setBounds(35, 272, 128, 128);
         this.iconComptable.setBounds(254, 272, 128, 128);
         this.iconAdd.setBounds(473, 272, 128, 128);

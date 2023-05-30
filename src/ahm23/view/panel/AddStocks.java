@@ -64,7 +64,7 @@ public class AddStocks extends JPanel{
         essenceField.setBounds(251, 466, 219, 34);
         quantiteField.setBounds(610, 466, 219, 34);
         
-        this.btn.setBounds(470, 555, 140, 52);
+        this.btn.setBounds(470, 555, 180, 52);
         
         // Font
         this.viewTitle.setFont(this.titleFont);
@@ -91,6 +91,7 @@ public class AddStocks extends JPanel{
         this.btn.setFocusPainted(false);
         this.btn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         this.btn.setBorderPainted(false);
+        this.btn.setOpaque(true);
         
         this.viewTitle.setCursor(new Cursor(Cursor.HAND_CURSOR));
         

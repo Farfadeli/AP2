@@ -59,6 +59,7 @@ public class Gestion extends JPanel{
         this.btn.setFocusPainted(false);
         this.btn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         this.btn.setBorderPainted(false);
+        this.btn.setOpaque(true);
         
         searchField.setBorder(new LineBorder(Color.BLACK, 1));
         this.colTitle.setBackground(Colorize.PRIMARY_RED);

@@ -98,6 +98,7 @@ public class AddUser extends JPanel{
         this.btn.setFocusPainted(false);
         this.btn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         this.btn.setBorderPainted(false);
+        this.btn.setOpaque(true);
         this.viewtitle.setCursor(new Cursor(Cursor.HAND_CURSOR));
         
         // Events

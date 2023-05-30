@@ -49,7 +49,7 @@ public class Comptable extends JPanel{
         
         this.viewTitle.setBounds(32, 18, 595, 69);
         paletteField.setBounds(158, 128, 764, 41);
-        this.btn.setBounds(471, 191, 145, 37);
+        this.btn.setBounds(471, 191, 180, 37);
         this.headerTab.setBounds(143, 312, 793, 48);
         scroll.setBounds(143,360,793,266);
         total.setBounds(665,650,500,24);
@@ -65,6 +65,7 @@ public class Comptable extends JPanel{
         this.btn.setFocusPainted(false);
         this.btn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         this.btn.setBorderPainted(false);
+        this.btn.setOpaque(true);
         
         this.headerTab.setLayout(null);
         this.headerTab.setBackground(Colorize.PRIMARY_RED);
