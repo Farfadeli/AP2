@@ -289,6 +289,40 @@ public class Query {
         }
     }
     
+    public void addCommande(int numCommande, String nomPalette, int qteCommande, float prixLigne){
+        try{
+           int id_palette = 0;
+           String request_already = "SELECT COUNT(id) FROM commande where id='"+numCommande+"' ;";
+           String modele_existe = "Select id from modelepalette where designation = '" + nomPalette + "';";
+           String commade_not_exist = "INSERT INTO commande(id,dateLivraisonPrevu) values(?, '2033-10-21')";
+           String add_ligne = "INSERT INTO lignecommande(idCommande, idModele, quantiteCommandee, prixUnitaireFacture)" 
+                   + " values(?, ?, ?, ?);";
+           ResultSet exist = this.getState().executeQuery(modele_existe);
+           while(exist.next()){
+               System.out.println(exist.getInt(1));
+               id_palette = exist.getInt(1);
+               ResultSet already = this.getState().executeQuery(request_already);
+               while(already.next()){
+                   if(already.getInt(1) == 0){
+                     PreparedStatement add_commande = this.connect.prepareStatement(commade_not_exist);
+                     add_commande.setInt(1, numCommande);
+                     add_commande.execute();
+                   }
+                   PreparedStatement res = this.connect.prepareStatement(add_ligne);
+                   res.setInt(1, numCommande);
+                   res.setInt(2, id_palette);
+                   res.setInt(3, qteCommande);
+                   res.setFloat(4, prixLigne);
+                   res.execute();
+                   System.out.println("La ligne à bien été ajouter.");
+               }
+           }
+        }
+        catch(SQLException ex){
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public Statement getState(){
         return this.state;
     }

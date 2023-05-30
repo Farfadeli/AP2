@@ -80,6 +80,11 @@ public class HomeView extends JPanel{
                 Gen.changeFrame(new GestionUser(), GestionUser.TITLE);
             }
         });
+        this.iconFire.addMouseListener(new MouseAdapter(){
+            public void mouseClicked(MouseEvent e){
+                Gen.changeFrame(new Commande(), Commande.TITLE);
+            }
+        });
         
         this.add(this.titleLabel);
         this.add(this.iconStock);
