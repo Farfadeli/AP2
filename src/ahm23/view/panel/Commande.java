@@ -79,6 +79,11 @@ public class Commande extends JPanel{
                 bdd.addCommande(Integer.parseInt(numField.getText()), nomField.getText(), Integer.parseInt(qteField.getText()), Float.parseFloat(prixField.getText()));
             }
         });
+        this.viewTitle.addMouseListener(new MouseAdapter(){
+            public void mouseClicked(MouseEvent e){
+                Gen.changeFrame(new HomeView(), HomeView.TITLE);
+            }
+        });
         
         this.add(this.viewTitle);
         this.add(this.numLabel);
